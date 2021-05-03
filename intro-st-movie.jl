@@ -40,8 +40,6 @@ function simple_st_eigenvectors_movie(A,R,k,plotfun;nsteps=500,every::Int=1)
     X .-= ((d'*X)/nd2).*d
     Q = qr!(sqrt.(d).*X).Q
     X = sqrt.(1.0./d).*Matrix(Q)
-    #X[abs.(X).< 1e-4] .= 0
-    #X[X[:,1] .> 1e-4,:] .= 0
     # figure out signs
     bestdiff = norm(X .- Xold)
     bestsign = [1,1]
